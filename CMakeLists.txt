@@ -1,4 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
 project(multithreading)
-add_executable(executable main.c thread.c glthread.c)
+add_executable(executable main.c thread.c glthread.c nfc.c)
 target_link_libraries(executable pthread)

@@ -24,7 +24,7 @@ void glthread_add_node(glhandle_t* glhandle_ptr, glnode_t *glnode_ptr){
     glhandle_ptr->no_of_nodes++;
 }
 
-void iterate_over_glthread(glhandle_t* glhandle_ptr, iterate_over_glthread_callback_t fun_callback){
+void iterate_over_glthread(glhandle_t* glhandle_ptr, glthread_callback_t fun_callback){
     glnode_t *glnode_ptr = NULL;
     for(glnode_ptr = glhandle_ptr->head; glnode_ptr != NULL; glnode_ptr = glnode_ptr->next){
         fun_callback(glnode_ptr);

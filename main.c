@@ -4,7 +4,7 @@
 #include <errno.h>
 #include <pthread.h>
 
-#include "glthread.h"
+#include "nfc.h"
 
 
 // typedef void* thread_fn_arg_t;
@@ -35,14 +35,38 @@
 // }
 
 
-typedef struct student_{
-    glnode_t glue;
-    char name[100];
-}student_t;
 
-void print_student_names(glnode_t *glue){
-    student_t *student = (student_t*)glue;
-    printf("%s\n", student->name);
+
+void fun0(){
+    printf("Hello World from fun0\n");
+}
+
+void fun1(){
+    printf("Hello World from fun1\n");
+}
+
+void fun2(){
+    printf("Hello World from fun2\n");
+}
+
+void fun3(){
+    printf("Hello World from fun3\n");
+}
+
+void fun4(){
+    printf("Hello World from fun4\n");
+}
+
+void fun5(){
+    printf("Hello World from fun5\n");
+}
+
+void fun6(){
+    printf("Hello World from fun6\n");
+}
+
+void fun7(){
+    printf("Hello World from fun7\n");
 }
 
 int main(){
@@ -56,15 +80,18 @@ int main(){
     // pthread_join(th0,NULL);
     // pthread_join(th1,NULL);
 
-    glhandle_t glhandle;
-    student_t s0={ .name = "szero"}, s1={ .name = "sone"}, s2={ .name = "stwo"}, s3={ .name = "sthree" }, s4={ .name = "sfour" }, s5={ .name = "sfive" };
-    glthread_handle_init(&glhandle);
-    glthread_add_node(&glhandle, &s0.glue);
-    glthread_add_node(&glhandle, &s1.glue);
-    glthread_add_node(&glhandle, &s2.glue);
-    glthread_add_node(&glhandle, &s3.glue);
-    glthread_add_node(&glhandle, &s4.glue);
-    glthread_add_node(&glhandle, &s5.glue);
-    iterate_over_glthread(&glhandle, print_student_names);
+    nfc_handle_t nfc;
+    nfc_handle_init(&nfc);
+
+    nfc_add(&nfc, fun0);
+    nfc_add(&nfc, fun1);
+    nfc_add(&nfc, fun2);
+    nfc_add(&nfc, fun3);
+    nfc_add(&nfc, fun4);
+    nfc_add(&nfc, fun5);
+    nfc_add(&nfc, fun6);
+    nfc_add(&nfc, fun7);
+
+    nfc_iterate(&nfc);
     return 0;
 }

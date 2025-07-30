@@ -14,13 +14,12 @@ typedef struct glhandle_{
 }glhandle_t;
 
 
-typedef void (*iterate_over_glthread_callback_t)(glnode_t *glnode_ptr);
-
+typedef void (*glthread_callback_t)(glnode_t *glnode_ptr);
 
 void glthread_handle_init(glhandle_t *handle);
 
 void glthread_add_node(glhandle_t* glhandle_ptr, glnode_t *glnode_ptr);
 
-void iterate_over_glthread(glhandle_t* glhandle_ptr, iterate_over_glthread_callback_t fun_callback);
+void iterate_over_glthread(glhandle_t* glhandle_ptr, glthread_callback_t fun_callback);
 
 #endif /*__GLTHREAD_H__*/
